@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import 'feature/sign_in_sign_up.dart';
 import 'theme/colors_collection.dart';
@@ -7,18 +8,33 @@ void main() {
   runApp(const App());
 }
 
+final GoRouter _router = GoRouter(
+  routes: <RouteBase>[
+    GoRoute(
+      path: '/',
+      builder: (BuildContext context, GoRouterState state) {
+        return const LoadingPage();
+      },
+      routes: <RouteBase>[
+        GoRoute(
+          path: 'sign',
+          builder: (BuildContext context, GoRouterState state) {
+            return const AuthPage();
+          },
+        ),
+      ],
+    ),
+  ],
+);
+
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Купи и точка',
-      routes: {
-        '/': (context) => const LoadingPage(),
-        '/sign': (context) => const SignInSignUp(),
-      },
-      initialRoute: '/',
+      routerConfig: _router,
     );
   }
 }
@@ -35,7 +51,7 @@ class _LoadingPageState extends State<LoadingPage> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 5), () {
-      Navigator.pushReplacementNamed(context, '/sign');
+      GoRouter.of(context).go('/sign');
     });
   }
 
