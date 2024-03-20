@@ -1,7 +1,9 @@
+import 'package:dex_course/core/domain/intl/generated/l10n.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import '../theme/colors_collection.dart';
+import '../../../../theme/colors_collection.dart';
+import '../../../../theme/text_field_styles.dart';
 
 class AuthPage extends StatefulWidget {
   const AuthPage({super.key});
@@ -60,13 +62,13 @@ class __AuthPageState extends State<AuthPage> {
     return;
   }
 
-  Widget get _tabBarBuilder => const TabBar(
+  Widget get _tabBarBuilder => TabBar(
         indicatorColor: ColorsCollection.primary,
         labelColor: ColorsCollection.primary,
-        unselectedLabelColor: Color(0xFF4F4449),
+        unselectedLabelColor: const Color(0xFF4F4449),
         tabs: [
-          Tab(text: 'Вход'),
-          Tab(text: 'Регистрация'),
+          Tab(text: S.of(context).login),
+          Tab(text: S.of(context).registration),
         ],
       );
   Widget get _tabViewBuilder => TabBarView(
@@ -100,9 +102,9 @@ class __AuthPageState extends State<AuthPage> {
                             : ColorsCollection.text),
                   ),
                   onPressed: isLoginPossible.value ? () => print('Log') : null,
-                  child: const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 18.0),
-                    child: Text('Войти'),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 18.0),
+                    child: Text(S.of(context).signIn),
                   ),
                 ),
               ),
@@ -116,7 +118,7 @@ class __AuthPageState extends State<AuthPage> {
                 foregroundColor:
                     MaterialStateProperty.all(ColorsCollection.primary),
               ),
-              child: const Text('Забыли пароль?'),
+              child: Text(S.of(context).forgotPassword),
             ),
           ],
         ),
@@ -130,7 +132,7 @@ class __AuthPageState extends State<AuthPage> {
             const SizedBox(height: 20),
             _textFieldPasswordBuilder,
             const SizedBox(height: 20),
-            _textFielConfirmdPasswordBuilder,
+            _textFieldConfirmPasswordBuilder,
             const SizedBox(height: 20),
             Row(
               children: [
@@ -153,9 +155,9 @@ class __AuthPageState extends State<AuthPage> {
                   text: TextSpan(
                     style: Theme.of(context).textTheme.bodyLarge,
                     children: [
-                      const TextSpan(text: 'Я согласен с '),
+                      TextSpan(text: S.of(context).agree),
                       TextSpan(
-                        text: 'Правилами и условиями \nиспользования',
+                        text: S.of(context).rulesOfUse,
                         style: const TextStyle(color: ColorsCollection.primary),
                         recognizer: TapGestureRecognizer()..onTap = () {},
                       ),
@@ -182,9 +184,9 @@ class __AuthPageState extends State<AuthPage> {
                   ),
                   onPressed:
                       isRegisterPossible.value ? () => print('Log') : null,
-                  child: const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 18.0),
-                    child: Text('Зарегистрироваться'),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 18.0),
+                    child: Text(S.of(context).signUp),
                   ),
                 ),
               ),
@@ -195,21 +197,8 @@ class __AuthPageState extends State<AuthPage> {
   Widget get _textFieldNumberBuilder => TextField(
         controller: numberTextCtrl,
         keyboardType: TextInputType.number,
-        decoration: InputDecoration(
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16.0),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderSide:
-                const BorderSide(color: ColorsCollection.primary, width: 2.0),
-            borderRadius: BorderRadius.circular(16.0),
-          ),
-          prefixIcon: const Icon(
-            Icons.phone_outlined,
-            color: Color(0xFF81737A),
-          ),
-          labelText: 'Телефон',
-          floatingLabelStyle: const TextStyle(color: ColorsCollection.primary),
+        decoration: TextFieldNumberStyles.getInputDecoration(
+          labelText: S.of(context).number,
         ),
       );
 
@@ -219,19 +208,9 @@ class __AuthPageState extends State<AuthPage> {
           return TextField(
             controller: passwordTextCtrl,
             obscureText: !isVisible,
-            decoration: InputDecoration(
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(16.0),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderSide: const BorderSide(
-                    color: ColorsCollection.primary, width: 2.0),
-                borderRadius: BorderRadius.circular(16.0),
-              ),
-              prefixIcon: const Icon(
-                Icons.lock_outline_sharp,
-                color: Color(0xFF81737A),
-              ),
+            decoration: TextFieldPasswordStyles.getInputDecoration(
+              labelText: S.of(context).password,
+            ).copyWith(
               suffixIcon: IconButton(
                 icon: Icon(
                   isVisible ? Icons.visibility : Icons.visibility_off,
@@ -242,32 +221,19 @@ class __AuthPageState extends State<AuthPage> {
                       !isPasswordVisible.value; // Переключаем значение
                 },
               ),
-              labelText: 'Пароль',
-              floatingLabelStyle:
-                  const TextStyle(color: ColorsCollection.primary),
             ),
           );
         },
       );
-  Widget get _textFielConfirmdPasswordBuilder => ValueListenableBuilder(
+  Widget get _textFieldConfirmPasswordBuilder => ValueListenableBuilder(
         valueListenable: isConfirmPasswordVisible,
         builder: (context, isVisibleConfirm, child) {
           return TextField(
             controller: confirmPasswordTextCtrl,
             obscureText: !isVisibleConfirm,
-            decoration: InputDecoration(
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(16.0),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderSide: const BorderSide(
-                    color: ColorsCollection.primary, width: 2.0),
-                borderRadius: BorderRadius.circular(16.0),
-              ),
-              prefixIcon: const Icon(
-                Icons.lock_outline_sharp,
-                color: Color(0xFF81737A),
-              ),
+            decoration: TextFieldPasswordStyles.getInputDecoration(
+              labelText: S.of(context).repeatPassword,
+            ).copyWith(
               suffixIcon: IconButton(
                 icon: Icon(
                   isVisibleConfirm ? Icons.visibility : Icons.visibility_off,
@@ -278,9 +244,6 @@ class __AuthPageState extends State<AuthPage> {
                       !isConfirmPasswordVisible.value; // Переключаем значение
                 },
               ),
-              labelText: 'Повторите пароль',
-              floatingLabelStyle:
-                  const TextStyle(color: ColorsCollection.primary),
             ),
           );
         },

@@ -1,0 +1,13 @@
+{
+  "login": "Login",
+  "registration": "Registration",
+  "signIn": "Sign in",
+  "forgotPassword": "Forgot password?",
+  "agree": "I agree with ",
+  "rulesOfUse": "Terms and conditions of use",
+  "signUp": "Sign up",
+  "password": "Password",
+  "repeatPassword": "Repeat password",
+  "number": "Number",
+  "buyAndPoint": "Buy and point"
+}
