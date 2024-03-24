@@ -50,6 +50,46 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `Email`
+  String get email {
+    return Intl.message(
+      'Email',
+      name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get password {
+    return Intl.message(
+      'Password',
+      name: 'password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone`
+  String get phone {
+    return Intl.message(
+      'Phone',
+      name: 'phone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign In`
+  String get signIn {
+    return Intl.message(
+      'Sign In',
+      name: 'signIn',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Login`
   String get login {
     return Intl.message(
@@ -70,11 +110,61 @@ class S {
     );
   }
 
-  /// `Sign in`
-  String get signIn {
+  /// `Repeat password`
+  String get repeatPassword {
     return Intl.message(
-      'Sign in',
-      name: 'signIn',
+      'Repeat password',
+      name: 'repeatPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `I''m agreed with Privacy and Policy usage`
+  String get imAgreedWithPrivacyAndPolicyUsage {
+    return Intl.message(
+      'I\'\'m agreed with Privacy and Policy usage',
+      name: 'imAgreedWithPrivacyAndPolicyUsage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign Up`
+  String get signUp {
+    return Intl.message(
+      'Sign Up',
+      name: 'signUp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get settings {
+    return Intl.message(
+      'Settings',
+      name: 'settings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Done`
+  String get done {
+    return Intl.message(
+      'Done',
+      name: 'done',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dark theme`
+  String get darkTheme {
+    return Intl.message(
+      'Dark theme',
+      name: 'darkTheme',
       desc: '',
       args: [],
     );
@@ -90,71 +180,101 @@ class S {
     );
   }
 
-  /// `I agree with `
-  String get agree {
+  /// `Recovery password`
+  String get recoveryPassword {
     return Intl.message(
-      'I agree with ',
-      name: 'agree',
+      'Recovery password',
+      name: 'recoveryPassword',
       desc: '',
       args: [],
     );
   }
 
-  /// `Terms and conditions of use`
-  String get rulesOfUse {
+  /// `Enter the number to which the password reset code will be sent`
+  String get enterNumberToWhichPasswordResetCodeWillBeSent {
     return Intl.message(
-      'Terms and conditions of use',
-      name: 'rulesOfUse',
+      'Enter the number to which the password reset code will be sent',
+      name: 'enterNumberToWhichPasswordResetCodeWillBeSent',
       desc: '',
       args: [],
     );
   }
 
-  /// `Sign up`
-  String get signUp {
+  /// `Send`
+  String get send {
     return Intl.message(
-      'Sign up',
-      name: 'signUp',
+      'Send',
+      name: 'send',
       desc: '',
       args: [],
     );
   }
 
-  /// `Password`
-  String get password {
+  /// `Enter Code`
+  String get enterCode {
     return Intl.message(
-      'Password',
-      name: 'password',
+      'Enter Code',
+      name: 'enterCode',
       desc: '',
       args: [],
     );
   }
 
-  /// `Repeat password`
-  String get repeatPassword {
+  /// `Enter the code sent to the number`
+  String get enterCodeSentToTheNumber {
     return Intl.message(
-      'Repeat password',
-      name: 'repeatPassword',
+      'Enter the code sent to the number',
+      name: 'enterCodeSentToTheNumber',
       desc: '',
       args: [],
     );
   }
 
-  /// `Number`
-  String get number {
+  /// `Confirm`
+  String get confirm {
     return Intl.message(
-      'Number',
-      name: 'number',
+      'Confirm',
+      name: 'confirm',
       desc: '',
       args: [],
     );
   }
 
-  /// `Buy and point`
-  String get buyAndPoint {
+  /// `Resend the code`
+  String get resendCode {
     return Intl.message(
-      'Buy and point',
-      name: 'buyAndPoint',
+      'Resend the code',
+      name: 'resendCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New password`
+  String get newPassword {
+    return Intl.message(
+      'New password',
+      name: 'newPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save new password`
+  String get saveNewPassword {
+    return Intl.message(
+      'Save new password',
+      name: 'saveNewPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Set a new password and confirm it to complete the reset.`
+  String get setNewPasswordConfirmItToCompleteReset {
+    return Intl.message(
+      'Set a new password and confirm it to complete the reset.',
+      name: 'setNewPasswordConfirmItToCompleteReset',
       desc: '',
       args: [],
     );

@@ -22,19 +22,39 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "agree": MessageLookupByLibrary.simpleMessage("I agree with "),
-        "buyAndPoint": MessageLookupByLibrary.simpleMessage("Buy and point"),
+        "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
+        "darkTheme": MessageLookupByLibrary.simpleMessage("Dark theme"),
+        "done": MessageLookupByLibrary.simpleMessage("Done"),
+        "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "enterCode": MessageLookupByLibrary.simpleMessage("Enter Code"),
+        "enterCodeSentToTheNumber": MessageLookupByLibrary.simpleMessage(
+            "Enter the code sent to the number"),
+        "enterNumberToWhichPasswordResetCodeWillBeSent":
+            MessageLookupByLibrary.simpleMessage(
+                "Enter the number to which the password reset code will be sent"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot password?"),
+        "imAgreedWithPrivacyAndPolicyUsage":
+            MessageLookupByLibrary.simpleMessage(
+                "I\'\'m agreed with Privacy and Policy usage"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
-        "number": MessageLookupByLibrary.simpleMessage("Number"),
+        "newPassword": MessageLookupByLibrary.simpleMessage("New password"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "phone": MessageLookupByLibrary.simpleMessage("Phone"),
+        "recoveryPassword":
+            MessageLookupByLibrary.simpleMessage("Recovery password"),
         "registration": MessageLookupByLibrary.simpleMessage("Registration"),
         "repeatPassword":
             MessageLookupByLibrary.simpleMessage("Repeat password"),
-        "rulesOfUse":
-            MessageLookupByLibrary.simpleMessage("Terms and conditions of use"),
-        "signIn": MessageLookupByLibrary.simpleMessage("Sign in"),
-        "signUp": MessageLookupByLibrary.simpleMessage("Sign up")
+        "resendCode": MessageLookupByLibrary.simpleMessage("Resend the code"),
+        "saveNewPassword":
+            MessageLookupByLibrary.simpleMessage("Save new password"),
+        "send": MessageLookupByLibrary.simpleMessage("Send"),
+        "setNewPasswordConfirmItToCompleteReset":
+            MessageLookupByLibrary.simpleMessage(
+                "Set a new password and confirm it to complete the reset."),
+        "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+        "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
+        "signUp": MessageLookupByLibrary.simpleMessage("Sign Up")
       };
 }

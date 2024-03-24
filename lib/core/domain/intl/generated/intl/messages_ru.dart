@@ -22,18 +22,39 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "agree": MessageLookupByLibrary.simpleMessage("Я согласен с "),
-        "buyAndPoint": MessageLookupByLibrary.simpleMessage("Купи и точка"),
+        "confirm": MessageLookupByLibrary.simpleMessage("Подтвердить"),
+        "darkTheme": MessageLookupByLibrary.simpleMessage("Темная тема"),
+        "done": MessageLookupByLibrary.simpleMessage("Готово"),
+        "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "enterCode": MessageLookupByLibrary.simpleMessage("Введите код"),
+        "enterCodeSentToTheNumber": MessageLookupByLibrary.simpleMessage(
+            "Введите код, отправленный на номер"),
+        "enterNumberToWhichPasswordResetCodeWillBeSent":
+            MessageLookupByLibrary.simpleMessage(
+                "Введите номер, на который будет отправлен код для сброса пароля"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Забыли пароль?"),
+        "imAgreedWithPrivacyAndPolicyUsage":
+            MessageLookupByLibrary.simpleMessage(
+                "Я согласен с Правилами и Условиями использования"),
         "login": MessageLookupByLibrary.simpleMessage("Вход"),
-        "number": MessageLookupByLibrary.simpleMessage("Телефон"),
+        "newPassword": MessageLookupByLibrary.simpleMessage("Новый пароль"),
         "password": MessageLookupByLibrary.simpleMessage("Пароль"),
+        "phone": MessageLookupByLibrary.simpleMessage("Телефон"),
+        "recoveryPassword":
+            MessageLookupByLibrary.simpleMessage("Восстановление пароля"),
         "registration": MessageLookupByLibrary.simpleMessage("Регистрация"),
         "repeatPassword":
             MessageLookupByLibrary.simpleMessage("Повторите пароль"),
-        "rulesOfUse": MessageLookupByLibrary.simpleMessage(
-            "Правилами и условиями \n использования"),
+        "resendCode":
+            MessageLookupByLibrary.simpleMessage("Отправить код повторно"),
+        "saveNewPassword":
+            MessageLookupByLibrary.simpleMessage("Сохранить новый пароль"),
+        "send": MessageLookupByLibrary.simpleMessage("Отправить"),
+        "setNewPasswordConfirmItToCompleteReset":
+            MessageLookupByLibrary.simpleMessage(
+                "Задайте новый пароль и подтвердите его для завершения сброса."),
+        "settings": MessageLookupByLibrary.simpleMessage("Настройки"),
         "signIn": MessageLookupByLibrary.simpleMessage("Войти"),
         "signUp": MessageLookupByLibrary.simpleMessage("Зарегистрироваться")
       };
