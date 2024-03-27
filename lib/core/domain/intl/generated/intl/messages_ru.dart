@@ -22,9 +22,19 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "aboutApplication":
+            MessageLookupByLibrary.simpleMessage("О приложении"),
+        "addCity": MessageLookupByLibrary.simpleMessage("Добавить город"),
+        "advertisement": MessageLookupByLibrary.simpleMessage("Объявления"),
+        "all": MessageLookupByLibrary.simpleMessage("Все"),
+        "apply": MessageLookupByLibrary.simpleMessage("Применить"),
+        "bender": MessageLookupByLibrary.simpleMessage("Бендеры"),
+        "city": MessageLookupByLibrary.simpleMessage("Город"),
         "confirm": MessageLookupByLibrary.simpleMessage("Подтвердить"),
         "darkTheme": MessageLookupByLibrary.simpleMessage("Темная тема"),
+        "dnestrovsk": MessageLookupByLibrary.simpleMessage("Днестровск"),
         "done": MessageLookupByLibrary.simpleMessage("Готово"),
+        "dubossary": MessageLookupByLibrary.simpleMessage("Дубоссары"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "enterCode": MessageLookupByLibrary.simpleMessage("Введите код"),
         "enterCodeSentToTheNumber": MessageLookupByLibrary.simpleMessage(
@@ -32,15 +42,22 @@ class MessageLookup extends MessageLookupByLibrary {
         "enterNumberToWhichPasswordResetCodeWillBeSent":
             MessageLookupByLibrary.simpleMessage(
                 "Введите номер, на который будет отправлен код для сброса пароля"),
+        "favorites": MessageLookupByLibrary.simpleMessage("Избранное"),
+        "filter": MessageLookupByLibrary.simpleMessage("Фильтры"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Забыли пароль?"),
+        "goOut": MessageLookupByLibrary.simpleMessage("Выйти"),
+        "grigoriopol": MessageLookupByLibrary.simpleMessage("Григориополь"),
         "imAgreedWithPrivacyAndPolicyUsage":
             MessageLookupByLibrary.simpleMessage(
                 "Я согласен с Правилами и Условиями использования"),
+        "kamenka": MessageLookupByLibrary.simpleMessage("Каменка"),
         "login": MessageLookupByLibrary.simpleMessage("Вход"),
+        "my": MessageLookupByLibrary.simpleMessage("Мои"),
         "newPassword": MessageLookupByLibrary.simpleMessage("Новый пароль"),
         "password": MessageLookupByLibrary.simpleMessage("Пароль"),
         "phone": MessageLookupByLibrary.simpleMessage("Телефон"),
+        "profile": MessageLookupByLibrary.simpleMessage("Профиль"),
         "recoveryPassword":
             MessageLookupByLibrary.simpleMessage("Восстановление пароля"),
         "registration": MessageLookupByLibrary.simpleMessage("Регистрация"),
@@ -48,14 +65,19 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Повторите пароль"),
         "resendCode":
             MessageLookupByLibrary.simpleMessage("Отправить код повторно"),
+        "rybnitsa": MessageLookupByLibrary.simpleMessage("Рыбница"),
         "saveNewPassword":
             MessageLookupByLibrary.simpleMessage("Сохранить новый пароль"),
+        "searchForAdvertisement":
+            MessageLookupByLibrary.simpleMessage("Поиск объявления"),
         "send": MessageLookupByLibrary.simpleMessage("Отправить"),
         "setNewPasswordConfirmItToCompleteReset":
             MessageLookupByLibrary.simpleMessage(
                 "Задайте новый пароль и подтвердите его для завершения сброса."),
         "settings": MessageLookupByLibrary.simpleMessage("Настройки"),
         "signIn": MessageLookupByLibrary.simpleMessage("Войти"),
-        "signUp": MessageLookupByLibrary.simpleMessage("Зарегистрироваться")
+        "signUp": MessageLookupByLibrary.simpleMessage("Зарегистрироваться"),
+        "slobodzeya": MessageLookupByLibrary.simpleMessage("Слободзея"),
+        "tiraspol": MessageLookupByLibrary.simpleMessage("Тирасполь")
       };
 }
