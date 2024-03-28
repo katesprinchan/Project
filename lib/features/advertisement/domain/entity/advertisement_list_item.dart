@@ -8,8 +8,9 @@ class AdvertisementListItem {
   final DateTime creationDate;
   final double cost;
   final Locality locality;
+  bool isFavorite;
 
-  const AdvertisementListItem({
+  AdvertisementListItem({
     required this.id,
     required this.image,
     required this.title,
@@ -17,6 +18,7 @@ class AdvertisementListItem {
     required this.creationDate,
     required this.cost,
     required this.locality,
+    required this.isFavorite,
   });
 }
 
@@ -25,10 +27,12 @@ class AdvertisementCreationEntity {
   final String description;
   final double cost;
   final Locality locality;
+  bool isFavorite;
   AdvertisementCreationEntity({
     required this.title,
     required this.description,
     required this.cost,
     required this.locality,
+    required this.isFavorite,
   });
 }

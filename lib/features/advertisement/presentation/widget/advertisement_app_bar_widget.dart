@@ -18,9 +18,7 @@ class CustomSearchBar extends StatefulWidget {
 class _CustomSearchBarState extends State<CustomSearchBar>
     with SingleTickerProviderStateMixin {
   AdvertisementListViewModel get vm => widget.vm;
-  void openDrawer() {
-    Scaffold.of(context).openDrawer();
-  }
+  void openDrawer() {}
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +54,7 @@ class _CustomSearchBarState extends State<CustomSearchBar>
             height: 48,
             decoration: const BoxDecoration(
               shape: BoxShape.circle,
-              color: ColorsCollection.surfaceContainerLow, // Цвет фона
+              color: ColorsCollection.surfaceContainerLow,
             ),
             child: AppBarActionButton(
               onTap: () => vm.onFilterTap(context),

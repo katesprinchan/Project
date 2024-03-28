@@ -52,7 +52,7 @@ class _AdvertisementListPageState extends State<AdvertisementListPage>
         controller: vm.tabController,
         children: [
           _allTabBuilder,
-          _myTabBuilder,
+          _myTabBuilder(context),
         ],
       );
 
@@ -105,13 +105,29 @@ class _AdvertisementListPageState extends State<AdvertisementListPage>
           ),
         ],
       );
-  Widget get _myTabBuilder => const SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 16),
-        child: Column(
-          children: [
-            SizedBox(height: 100),
-          ],
-        ),
+  Widget _myTabBuilder(BuildContext context) => Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const SizedBox(height: 125),
+          const Icon(Icons.add,
+              color: ColorsCollection.outlineVariant, size: 90),
+          const SizedBox(height: 40),
+          Text(
+            S.of(context).youDontHaveAnyAdvertisementYet,
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                  color: ColorsCollection.onSurface,
+                ),
+          ),
+          const SizedBox(height: 16),
+          Text(
+            S.of(context).DontMisstheOpportunity,
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: ColorsCollection.onSurfaceVariant,
+                ),
+          ),
+        ],
       );
   @override
   Widget build(BuildContext context) {
@@ -133,6 +149,14 @@ class _AdvertisementListPageState extends State<AdvertisementListPage>
         ],
       ),
       bottomNavigationBar: _navigation,
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: ColorsCollection.primaryContainer,
+        onPressed: () {},
+        child: const Icon(
+          Icons.add,
+          color: ColorsCollection.onPrimaryContainer,
+        ),
+      ),
       drawer: const MainDrawer(),
     );
   }

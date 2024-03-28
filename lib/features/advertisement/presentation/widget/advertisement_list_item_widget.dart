@@ -51,6 +51,8 @@ class _AdvertisementListItemWidgetState
             onPressed: () {
               setState(() {
                 isFavorite = !isFavorite;
+                widget.advertisementListItem.isFavorite =
+                    !widget.advertisementListItem.isFavorite;
               });
             },
             icon: Icon(
@@ -86,7 +88,7 @@ class _AdvertisementListItemWidgetState
             ),
             const SizedBox(height: 16),
             Text(
-              widget.advertisementListItem.locality.toString(),
+              widget.advertisementListItem.locality.name(context),
               style: Theme.of(context).textTheme.bodyMedium,
             ),
             Text(

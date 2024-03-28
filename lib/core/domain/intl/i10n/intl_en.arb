@@ -41,5 +41,7 @@
   "city": "City",
   "addCity": "Add city",
   "goOut": "Go Out",
-  "aboutApplication": "About the application"
+  "aboutApplication": "About the application",
+  "youDontHaveAnyAdvertisementYet": "You don't have any advertisement yet",
+  "DontMisstheOpportunity": "Don't miss the opportunity!\n Create and publish your ad right now to offer products or services to a wide audience."
 }

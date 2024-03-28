@@ -20,6 +20,7 @@ class AdvertisementMockedRepository implements AdvertisementRepository {
         creationDate: DateTime(2024, 1, index + 1),
         cost: index * 123,
         locality: locality,
+        isFavorite: false,
       );
     },
   );

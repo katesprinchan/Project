@@ -22,6 +22,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "DontMisstheOpportunity": MessageLookupByLibrary.simpleMessage(
+            "Не упустите возможность! \nСоздайте и опубликуйте своё объявление прямо сейчас, чтобы предложить товары или услуги широкой аудитории."),
         "aboutApplication":
             MessageLookupByLibrary.simpleMessage("О приложении"),
         "addCity": MessageLookupByLibrary.simpleMessage("Добавить город"),
@@ -78,6 +80,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "signIn": MessageLookupByLibrary.simpleMessage("Войти"),
         "signUp": MessageLookupByLibrary.simpleMessage("Зарегистрироваться"),
         "slobodzeya": MessageLookupByLibrary.simpleMessage("Слободзея"),
-        "tiraspol": MessageLookupByLibrary.simpleMessage("Тирасполь")
+        "tiraspol": MessageLookupByLibrary.simpleMessage("Тирасполь"),
+        "youDontHaveAnyAdvertisementYet":
+            MessageLookupByLibrary.simpleMessage("У вас пока нет объявлений")
       };
 }

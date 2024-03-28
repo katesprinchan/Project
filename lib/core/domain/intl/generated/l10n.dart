@@ -479,6 +479,26 @@ class S {
       args: [],
     );
   }
+
+  /// `You don't have any advertisement yet`
+  String get youDontHaveAnyAdvertisementYet {
+    return Intl.message(
+      'You don\'t have any advertisement yet',
+      name: 'youDontHaveAnyAdvertisementYet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Don't miss the opportunity!\n Create and publish your ad right now to offer products or services to a wide audience.`
+  String get DontMisstheOpportunity {
+    return Intl.message(
+      'Don\'t miss the opportunity!\n Create and publish your ad right now to offer products or services to a wide audience.',
+      name: 'DontMisstheOpportunity',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
