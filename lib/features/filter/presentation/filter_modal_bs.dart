@@ -1,5 +1,4 @@
 import 'package:dex_course/core/domain/intl/generated/l10n.dart';
-import 'package:dex_course/features/filter/domain/service/filter_event.dart';
 import 'package:dex_course/features/filter/domain/service/filter_service.dart';
 import 'package:dex_course/features/locality/domain/entity/locality.dart';
 import 'package:dex_course/theme/colors_collection.dart';
@@ -16,12 +15,16 @@ class FilterModalBottomSheet extends StatefulWidget {
 }
 
 class _FilterModalBottomSheetState extends State<FilterModalBottomSheet> {
-  late List<bool> isCheckedList;
+  late List<ValueNotifier<bool>> isCheckedList;
+  List<LocalityList> selectedLocalities = [];
 
   @override
   void initState() {
     super.initState();
-    isCheckedList = List<bool>.filled(LocalityList.values.length, false);
+    isCheckedList = List.generate(
+      LocalityList.values.length,
+      (index) => ValueNotifier(false),
+    );
   }
 
   BoxDecoration get _modalDecoration => const BoxDecoration(
@@ -31,53 +34,6 @@ class _FilterModalBottomSheetState extends State<FilterModalBottomSheet> {
         ),
         color: ColorsCollection.surfaceContainerLow,
       );
-
-  Widget _addingCityBuilder(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Text(
-          S.of(context).city,
-          style: Theme.of(context).textTheme.titleMedium,
-        ),
-        TextButton(
-          onPressed: () {
-            showModalBottomSheet<void>(
-              context: context,
-              builder: (BuildContext context) {
-                return ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: LocalityList.values.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    final locality = LocalityList.values.elementAt(index);
-                    return ListTile(
-                      leading: Checkbox(
-                        value: isCheckedList[index],
-                        onChanged: (bool? value) {
-                          setState(() {
-                            isCheckedList[index] = value ?? false;
-                          });
-                        },
-                      ),
-                      title: Text(locality.name(context)),
-                      onTap: () {
-                        print('Selected city: ${locality.name(context)}');
-                      },
-                    );
-                  },
-                );
-              },
-            );
-          },
-          child: Text(
-            S.of(context).addCity,
-            style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                  color: ColorsCollection.primary,
-                ),
-          ),
-        ),
-      ],
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -96,33 +52,107 @@ class _FilterModalBottomSheetState extends State<FilterModalBottomSheet> {
     );
   }
 
-  Widget _modalHeaderBuilder(BuildContext context) => Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            S.of(context).filter,
-            style: Theme.of(context).textTheme.titleLarge,
+  Widget _modalHeaderBuilder(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          S.of(context).filter,
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
+        TextButton(
+          onPressed: () {
+            // Действия при нажатии на кнопку "Применить"
+          },
+          child: Text(
+            S.of(context).apply,
+            style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                  color: ColorsCollection.primary,
+                ),
           ),
-          TextButton(
-            onPressed: () {
-              List<LocalityList> selectedLocalities = [];
-              for (int i = 0; i < isCheckedList.length; i++) {
-                if (isCheckedList[i]) {
-                  selectedLocalities.add(LocalityList.values[i]);
-                }
-              }
-              widget.filterService.add(AddCityEvent(
-                  selectedLocalities.map((e) => e.name(context)).toList()));
+        ),
+      ],
+    );
+  }
 
-              Navigator.of(context).pop();
+  Widget _addingCityBuilder(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Align(
+          alignment: Alignment.topLeft,
+          child: Text(
+            S.of(context).city,
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+        ),
+        Align(
+          alignment: Alignment.topLeft,
+          child: Wrap(
+            spacing: 8.0,
+            runSpacing: 4.0,
+            children: selectedLocalities.map((locality) {
+              return InputChip(
+                label: Text(locality.name(context),
+                    style: Theme.of(context).textTheme.labelLarge),
+                deleteIconColor: Colors.black,
+                onDeleted: () {
+                  setState(() {
+                    selectedLocalities.remove(locality);
+                  });
+                },
+              );
+            }).toList(),
+          ),
+        ),
+        Align(
+          alignment: Alignment.topLeft,
+          child: TextButton(
+            onPressed: () {
+              showModalBottomSheet<void>(
+                context: context,
+                builder: (BuildContext context) {
+                  return ListView.builder(
+                    itemCount: LocalityList.values.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      final locality = LocalityList.values[index];
+                      return ListTile(
+                        leading: Checkbox(
+                          value: selectedLocalities.contains(locality),
+                          onChanged: (bool? value) {
+                            setState(() {
+                              if (value ?? false) {
+                                selectedLocalities.add(locality);
+                              } else {
+                                selectedLocalities.remove(locality);
+                              }
+                            });
+                          },
+                        ),
+                        title: Text(locality.name(context)),
+                        onTap: () {
+                          setState(() {
+                            if (selectedLocalities.contains(locality)) {
+                              selectedLocalities.remove(locality);
+                            } else {
+                              selectedLocalities.add(locality);
+                            }
+                          });
+                        },
+                      );
+                    },
+                  );
+                },
+              );
             },
             child: Text(
-              S.of(context).apply,
+              S.of(context).addCity,
               style: Theme.of(context).textTheme.labelLarge?.copyWith(
                     color: ColorsCollection.primary,
                   ),
             ),
           ),
-        ],
-      );
+        ),
+      ],
+    );
+  }
 }
