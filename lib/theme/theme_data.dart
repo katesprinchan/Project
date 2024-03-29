@@ -121,4 +121,7 @@ final themeData = ThemeData(
       letterSpacing: .4,
     ),
   ),
+  buttonTheme: const ButtonThemeData(
+    buttonColor: ColorsCollection.primary,
+  ),
 );

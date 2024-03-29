@@ -4,7 +4,6 @@ import 'package:dex_course/core/presentation/app_filled_button.dart';
 import 'package:dex_course/core/presentation/app_text_field.dart';
 import 'package:dex_course/core/presentation/button/app_bar_action_button.dart';
 import 'package:dex_course/features/recovery/presentation/recovery_vm.dart';
-import 'package:dex_course/routing.dart';
 import 'package:dex_course/theme/colors_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -43,13 +42,6 @@ class _EnterCodePageState extends State<EnterCodePage>
     return Scaffold(
       appBar: CustomAppBar(
         title: Text(S.of(context).enterCode),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back,
-              color: ColorsCollection.outline, size: 24.0),
-          onPressed: () {
-            context.go(AppRouteList.recovery);
-          },
-        ),
         context: context,
         actions: [
           AppBarActionButton(
@@ -98,7 +90,7 @@ class _EnterCodePageState extends State<EnterCodePage>
                 onPressed: value
                     ? () async {
                         await vm.enterCode();
-                        context.go(AppRouteList.newPassword);
+                        context.go('/auth/forgotPassword/newPassword');
                       }
                     : null,
                 child: Text(S.of(context).confirm),
@@ -107,10 +99,6 @@ class _EnterCodePageState extends State<EnterCodePage>
             const SizedBox(height: 20),
             TextButton(
               onPressed: () {},
-              style: ButtonStyle(
-                foregroundColor:
-                    MaterialStateProperty.all(ColorsCollection.primary),
-              ),
               child: Text(S.of(context).resendCode),
             ),
           ],

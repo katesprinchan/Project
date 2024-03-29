@@ -98,19 +98,19 @@ class _AuthPageState extends State<AuthPage>
             const SizedBox(height: 20),
             vm.isLoginPossible.observer(
               (context, value) => AppFilledButton(
-                onPressed: value ? vm.signIn : null,
+                onPressed: value
+                    ? () {
+                        context.go(AppRouteList.advertisementListPage);
+                      }
+                    : null,
                 child: Text(S.of(context).signIn),
               ),
             ),
             const SizedBox(height: 20),
             TextButton(
               onPressed: () {
-                context.go(AppRouteList.recovery);
+                context.go('/auth/forgotPassword');
               },
-              style: ButtonStyle(
-                foregroundColor:
-                    MaterialStateProperty.all(ColorsCollection.primary),
-              ),
               child: Text(S.of(context).forgotPassword),
             ),
           ],

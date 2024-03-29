@@ -4,10 +4,8 @@ import 'package:dex_course/core/presentation/app_filled_button.dart';
 import 'package:dex_course/core/presentation/button/app_bar_action_button.dart';
 import 'package:dex_course/core/presentation/password_text_field.dart';
 import 'package:dex_course/features/recovery/presentation/recovery_vm.dart';
-import 'package:dex_course/routing.dart';
 import 'package:dex_course/theme/colors_collection.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class NewPasswordPage extends StatefulWidget {
   final RecoveryViewModel vm;
@@ -51,13 +49,6 @@ class _NewPasswordPageState extends State<NewPasswordPage>
     return Scaffold(
       appBar: CustomAppBar(
         title: Text(S.of(context).newPassword),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back,
-              color: ColorsCollection.outline, size: 24.0),
-          onPressed: () {
-            context.go(AppRouteList.enterCode);
-          },
-        ),
         context: context,
         actions: [
           AppBarActionButton(
