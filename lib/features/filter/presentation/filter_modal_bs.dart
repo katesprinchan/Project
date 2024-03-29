@@ -62,7 +62,7 @@ class _FilterModalBottomSheetState extends State<FilterModalBottomSheet> {
         ),
         TextButton(
           onPressed: () {
-            // Действия при нажатии на кнопку "Применить"
+            Navigator.of(context).pop();
           },
           child: Text(
             S.of(context).apply,
