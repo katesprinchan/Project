@@ -20,5 +20,9 @@ abstract class ColorsCollection {
 
   static const surfaceContainerLow = Color(0xFFFEF0F5);
 
+  static const surfaceContainer = Color(0xFFF9EAEF);
+
   static const outlineVariant = Color(0xFFD3C2C9);
+
+  static const secondaryContainer = Color(0xFFFFD9E2);
 }

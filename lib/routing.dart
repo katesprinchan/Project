@@ -1,11 +1,16 @@
 import 'package:dex_course/core/domain/container/app_container.dart';
+import 'package:dex_course/features/advertisement/presentation/page/advertisement_add_page.dart';
+import 'package:dex_course/features/advertisement/presentation/page/advertisement_detailed_list_page.dart';
+import 'package:dex_course/features/advertisement/presentation/page/advertisement_favorite_page.dart';
+import 'package:dex_course/features/advertisement/presentation/page/advertisement_list_page.dart';
+import 'package:dex_course/features/advertisement/presentation/page/advertisement_list_vm.dart';
 import 'package:dex_course/features/auth/presentation/auth_page.dart';
 import 'package:dex_course/features/auth/presentation/auth_vm.dart';
 import 'package:dex_course/features/init/presentation/init_page.dart';
 import 'package:dex_course/features/init/presentation/init_vm.dart';
-import 'package:dex_course/features/recovery/presentation/enter_code.dart';
+import 'package:dex_course/features/recovery/presentation/code_validation.dart';
+import 'package:dex_course/features/recovery/presentation/forgot-password.dart';
 import 'package:dex_course/features/recovery/presentation/new_password.dart';
-import 'package:dex_course/features/recovery/presentation/recovery_page.dart';
 import 'package:dex_course/features/recovery/presentation/recovery_vm.dart';
 import 'package:go_router/go_router.dart';
 
@@ -14,11 +19,19 @@ abstract class AppRouteList {
 
   static const auth = '/auth';
 
-  static const recovery = '/recovery';
+  static const forgotPassword = 'forgotPassword';
 
-  static const enterCode = '/enterCode';
+  static const codeValidation = 'codeValidation';
 
-  static const newPassword = '/newPassword';
+  static const newPassword = 'newPassword';
+
+  static const advertisementListPage = '/advListPage';
+
+  static const advertisementDetailedPage = 'advertisementDetailedPage';
+
+  static const advertisementAddPage = 'advertisementAddPage';
+
+  static const advertisementFavoritePage = '/advertisementFavoritePage';
 }
 
 abstract class AppRouterConfig {
@@ -41,39 +54,83 @@ abstract class AppRouterConfig {
             ),
           );
         },
+        routes: [
+          GoRoute(
+            path: AppRouteList.forgotPassword,
+            builder: (context, state) {
+              return RecoveryPage(
+                vm: RecoveryViewModel(
+                  authRepository: AppContainer().repositoryScope.authRepository,
+                  settingService: AppContainer().serviceScope.settingsService,
+                ),
+              );
+            },
+            routes: [
+              GoRoute(
+                path: AppRouteList.codeValidation,
+                builder: (context, state) {
+                  return EnterCodePage(
+                    vm: RecoveryViewModel(
+                      authRepository:
+                          AppContainer().repositoryScope.authRepository,
+                      settingService:
+                          AppContainer().serviceScope.settingsService,
+                    ),
+                  );
+                },
+              ),
+              GoRoute(
+                path: AppRouteList.newPassword,
+                builder: (context, state) {
+                  return NewPasswordPage(
+                    vm: RecoveryViewModel(
+                      authRepository:
+                          AppContainer().repositoryScope.authRepository,
+                      settingService:
+                          AppContainer().serviceScope.settingsService,
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
+        ],
       ),
       GoRoute(
-        path: AppRouteList.recovery,
-        builder: (context, state) {
-          return RecoveryPage(
-            vm: RecoveryViewModel(
-              authRepository: AppContainer().repositoryScope.authRepository,
-              settingService: AppContainer().serviceScope.settingsService,
+        path: AppRouteList.advertisementListPage,
+        builder: (context, state) => AdvertisementListPage(
+          vm: AdvertisementListViewModel(
+            advertisementRepository:
+                AppContainer().repositoryScope.advertisementRepository,
+            filterService: AppContainer().filterScope.filterService,
+          ),
+        ),
+        routes: [
+          GoRoute(
+            path: AppRouteList.advertisementDetailedPage,
+            builder: (context, state) => AdvertisementDetailedPage(
+              vm: AdvertisementListViewModel(
+                advertisementRepository:
+                    AppContainer().repositoryScope.advertisementRepository,
+                filterService: AppContainer().filterScope.filterService,
+              ),
             ),
-          );
-        },
+          ),
+          GoRoute(
+            path: AppRouteList.advertisementAddPage,
+            builder: (context, state) => const AdvertisementAddPage(),
+          ),
+        ],
       ),
       GoRoute(
-        path: AppRouteList.enterCode,
-        builder: (context, state) {
-          return EnterCodePage(
-            vm: RecoveryViewModel(
-              authRepository: AppContainer().repositoryScope.authRepository,
-              settingService: AppContainer().serviceScope.settingsService,
-            ),
-          );
-        },
-      ),
-      GoRoute(
-        path: AppRouteList.newPassword,
-        builder: (context, state) {
-          return NewPasswordPage(
-            vm: RecoveryViewModel(
-              authRepository: AppContainer().repositoryScope.authRepository,
-              settingService: AppContainer().serviceScope.settingsService,
-            ),
-          );
-        },
+        path: AppRouteList.advertisementFavoritePage,
+        builder: (context, state) => AdvertisementFavoritePage(
+          vm: AdvertisementListViewModel(
+            advertisementRepository:
+                AppContainer().repositoryScope.advertisementRepository,
+            filterService: AppContainer().filterScope.filterService,
+          ),
+        ),
       ),
     ],
   );
