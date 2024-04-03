@@ -22,7 +22,6 @@ class CustomAppBar extends AppBar {
                       onPressed: context.pop,
                       icon: const Icon(Icons.arrow_back_outlined))
                   : const SizedBox.shrink()),
-          automaticallyImplyLeading: false,
           titleTextStyle: Theme.of(context).textTheme.titleLarge,
           actions: actions,
           iconTheme: const IconThemeData(

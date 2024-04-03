@@ -109,7 +109,7 @@ class _AuthPageState extends State<AuthPage>
             const SizedBox(height: 20),
             TextButton(
               onPressed: () {
-                context.go('/auth/forgotPassword');
+                context.go(AppRouteList.forgotPassword);
               },
               child: Text(S.of(context).forgotPassword),
             ),

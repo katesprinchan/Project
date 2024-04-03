@@ -1,10 +1,16 @@
 import 'package:dex_course/core/domain/intl/generated/l10n.dart';
 import 'package:dex_course/core/presentation/asset/image_collection.dart';
+import 'package:dex_course/routing.dart';
 import 'package:dex_course/theme/colors_collection.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class MainDrawer extends StatelessWidget {
-  const MainDrawer({Key? key}) : super(key: key);
+  final Function() onSettingsTap;
+  const MainDrawer({
+    Key? key,
+    required this.onSettingsTap,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +34,7 @@ class MainDrawer extends StatelessWidget {
                     color: ColorsCollection.onSurfaceVariant,
                   ),
             ),
-            onTap: () {},
+            onTap: onSettingsTap,
           ),
           ListTile(
             leading:
@@ -39,7 +45,9 @@ class MainDrawer extends StatelessWidget {
                     color: ColorsCollection.onSurfaceVariant,
                   ),
             ),
-            onTap: () {},
+            onTap: () {
+              context.go(AppRouteList.aboutApplication);
+            },
           ),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 12.0),
