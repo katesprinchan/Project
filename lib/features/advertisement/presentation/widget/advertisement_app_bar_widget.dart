@@ -1,28 +1,24 @@
 import 'package:dex_course/core/domain/intl/generated/l10n.dart';
 import 'package:dex_course/core/presentation/button/app_bar_action_button.dart';
-import 'package:dex_course/features/advertisement/presentation/page/advertisement_list_vm.dart';
 import 'package:dex_course/theme/colors_collection.dart';
 import 'package:flutter/material.dart';
 
-class CustomSearchBar extends StatefulWidget {
-  final AdvertisementListViewModel vm;
+class CustomSearchBar extends StatelessWidget {
+  final Function() onFilterTap;
+
   const CustomSearchBar({
-    super.key,
-    required this.vm,
-  });
+    Key? key,
+    required this.onFilterTap,
+  }) : super(key: key);
 
-  @override
-  State<CustomSearchBar> createState() => _CustomSearchBarState();
-}
-
-class _CustomSearchBarState extends State<CustomSearchBar>
-    with SingleTickerProviderStateMixin {
-  AdvertisementListViewModel get vm => widget.vm;
-  void openDrawer() {}
+  void openDrawer(BuildContext context) {
+    Scaffold.of(context).openDrawer();
+  }
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      automaticallyImplyLeading: false,
       title: Row(
         children: <Widget>[
           Expanded(
@@ -40,11 +36,11 @@ class _CustomSearchBarState extends State<CustomSearchBar>
                 ),
                 contentPadding:
                     const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-                // prefixIcon: IconButton(
-                //   icon: const Icon(Icons.menu),
-                //   onPressed: openDrawer,
-                // ),
-                // prefixIconColor: ColorsCollection.outline,
+                prefixIcon: IconButton(
+                  icon: const Icon(Icons.menu),
+                  onPressed: () => openDrawer(context),
+                ),
+                prefixIconColor: ColorsCollection.outline,
               ),
             ),
           ),
@@ -57,7 +53,7 @@ class _CustomSearchBarState extends State<CustomSearchBar>
               color: ColorsCollection.surfaceContainerLow,
             ),
             child: AppBarActionButton(
-              onTap: () => vm.onFilterTap(context),
+              onTap: onFilterTap,
               child: const Icon(Icons.filter_alt_outlined,
                   color: ColorsCollection.outline),
             ),

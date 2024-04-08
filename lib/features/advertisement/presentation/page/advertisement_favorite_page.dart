@@ -1,13 +1,13 @@
 import 'package:dex_course/core/domain/intl/generated/l10n.dart';
 import 'package:dex_course/core/presentation/drawer.dart';
-import 'package:dex_course/core/presentation/navigation_bar.dart';
-import 'package:dex_course/features/advertisement/presentation/page/advertisement_list_vm.dart';
+import 'package:dex_course/features/advertisement/presentation/page/advertisement_favorite_vm.dart';
+import 'package:dex_course/routing.dart';
 import 'package:dex_course/theme/colors_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class AdvertisementFavoritePage extends StatefulWidget {
-  final AdvertisementListViewModel vm;
+  final AdvertisementFavoriteViewModel vm;
   const AdvertisementFavoritePage({super.key, required this.vm});
 
   @override
@@ -17,8 +17,7 @@ class AdvertisementFavoritePage extends StatefulWidget {
 
 class _AdvertisementFavoritePageState extends State<AdvertisementFavoritePage>
     with SingleTickerProviderStateMixin {
-  AdvertisementListViewModel get vm => widget.vm;
-
+  AdvertisementFavoriteViewModel get vm => widget.vm;
   Widget _myFavoriteAdvertisement(BuildContext context) => Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -53,23 +52,24 @@ class _AdvertisementFavoritePageState extends State<AdvertisementFavoritePage>
           S.of(context).favorite,
           style: Theme.of(context)
               .textTheme
-              .headlineMedium
+              .titleLarge
               ?.copyWith(color: ColorsCollection.onSurface),
         ),
       ),
       body: _myFavoriteAdvertisement(context),
-      bottomNavigationBar: const MainNavigationBar(currentIndex: 1),
       floatingActionButton: FloatingActionButton(
         backgroundColor: ColorsCollection.primaryContainer,
         onPressed: () {
-          context.go('/advListPage/advertisementAddPage');
+          context.go(AppRouteList.advertisementAddPage);
         },
         child: const Icon(
           Icons.add,
           color: ColorsCollection.onPrimaryContainer,
         ),
       ),
-      drawer: const MainDrawer(),
+      drawer: MainDrawer(onSettingsTap: () {
+        vm.onSettingsTap(context);
+      }),
     );
   }
 }

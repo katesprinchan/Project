@@ -1,9 +1,9 @@
-import 'package:dex_course/core/domain/container/app_container.dart';
 import 'package:dex_course/core/domain/intl/generated/l10n.dart';
-import 'package:dex_course/core/presentation/navigation_bar.dart';
+import 'package:dex_course/core/presentation/drawer.dart';
 import 'package:dex_course/features/advertisement/presentation/page/advertisement_list_vm.dart';
 import 'package:dex_course/features/advertisement/presentation/widget/advertisement_app_bar_widget.dart';
 import 'package:dex_course/features/advertisement/presentation/widget/advertisement_list_item_widget.dart';
+import 'package:dex_course/routing.dart';
 import 'package:dex_course/theme/colors_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -105,13 +105,10 @@ class _AdvertisementListPageState extends State<AdvertisementListPage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: CustomSearchBar(
-          vm: AdvertisementListViewModel(
-            advertisementRepository:
-                AppContainer().repositoryScope.advertisementRepository,
-            filterService: AppContainer().filterScope.filterService,
-          ),
-        ),
+        automaticallyImplyLeading: false,
+        title: CustomSearchBar(onFilterTap: () {
+          vm.onFilterTap(context);
+        }),
       ),
       body: Column(
         mainAxisSize: MainAxisSize.min,
@@ -120,19 +117,19 @@ class _AdvertisementListPageState extends State<AdvertisementListPage>
           Expanded(child: _tabViewBuilder),
         ],
       ),
-
-      bottomNavigationBar: const MainNavigationBar(currentIndex: 0),
       floatingActionButton: FloatingActionButton(
         backgroundColor: ColorsCollection.primaryContainer,
         onPressed: () {
-          context.go('/advListPage/advertisementAddPage');
+          context.go(AppRouteList.advertisementAddPage);
         },
         child: const Icon(
           Icons.add,
           color: ColorsCollection.onPrimaryContainer,
         ),
       ),
-      // drawer: const MainDrawer(),
+      drawer: MainDrawer(onSettingsTap: () {
+        vm.onSettingsTap(context);
+      }),
     );
   }
 }

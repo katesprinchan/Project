@@ -4,6 +4,7 @@ import 'package:dex_course/core/presentation/app_filled_button.dart';
 import 'package:dex_course/core/presentation/app_text_field.dart';
 import 'package:dex_course/core/presentation/button/app_bar_action_button.dart';
 import 'package:dex_course/features/recovery/presentation/recovery_vm.dart';
+import 'package:dex_course/routing.dart';
 import 'package:dex_course/theme/colors_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -72,7 +73,7 @@ class _RecoveryPageState extends State<RecoveryPage>
                 onPressed: value
                     ? () async {
                         await vm.recoveryPassword();
-                        context.go('/auth/forgotPassword/codeValidation');
+                        context.go(AppRouteList.codeValidation);
                       }
                     : null,
                 child: Text(S.of(context).send),

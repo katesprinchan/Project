@@ -124,4 +124,8 @@ final themeData = ThemeData(
   buttonTheme: const ButtonThemeData(
     buttonColor: ColorsCollection.primary,
   ),
+  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+    selectedItemColor: ColorsCollection.onPrimaryContainer,
+    unselectedItemColor: ColorsCollection.outline,
+  ),
 );

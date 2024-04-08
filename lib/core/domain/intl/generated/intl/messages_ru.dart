@@ -40,6 +40,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "dontMisstheOpportunity": MessageLookupByLibrary.simpleMessage(
             "Не упустите возможность! \nСоздайте и опубликуйте своё объявление прямо сейчас, чтобы предложить товары или услуги широкой аудитории."),
         "dubossary": MessageLookupByLibrary.simpleMessage("Дубоссары"),
+        "editingProfile":
+            MessageLookupByLibrary.simpleMessage("Редактирование профиля"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "enterCode": MessageLookupByLibrary.simpleMessage("Введите код"),
         "enterCodeSentToTheNumber": MessageLookupByLibrary.simpleMessage(

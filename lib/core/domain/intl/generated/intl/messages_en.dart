@@ -40,6 +40,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "dontMisstheOpportunity": MessageLookupByLibrary.simpleMessage(
             "Don\'t miss the opportunity!\n Create and publish your ad right now to offer products or services to a wide audience."),
         "dubossary": MessageLookupByLibrary.simpleMessage("Dubossary"),
+        "editingProfile":
+            MessageLookupByLibrary.simpleMessage("Editing profile"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "enterCode": MessageLookupByLibrary.simpleMessage("Enter Code"),
         "enterCodeSentToTheNumber": MessageLookupByLibrary.simpleMessage(
