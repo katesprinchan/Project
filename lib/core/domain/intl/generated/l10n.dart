@@ -279,6 +279,276 @@ class S {
       args: [],
     );
   }
+
+  /// `Search for advertisement`
+  String get searchForAdvertisement {
+    return Intl.message(
+      'Search for advertisement',
+      name: 'searchForAdvertisement',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `All`
+  String get all {
+    return Intl.message(
+      'All',
+      name: 'all',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My`
+  String get my {
+    return Intl.message(
+      'My',
+      name: 'my',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Advertisement`
+  String get advertisement {
+    return Intl.message(
+      'Advertisement',
+      name: 'advertisement',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Favorites`
+  String get favorites {
+    return Intl.message(
+      'Favorites',
+      name: 'favorites',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profile`
+  String get profile {
+    return Intl.message(
+      'Profile',
+      name: 'profile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tiraspol`
+  String get tiraspol {
+    return Intl.message(
+      'Tiraspol',
+      name: 'tiraspol',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rybnitsa`
+  String get rybnitsa {
+    return Intl.message(
+      'Rybnitsa',
+      name: 'rybnitsa',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bender`
+  String get bender {
+    return Intl.message(
+      'Bender',
+      name: 'bender',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dubossary`
+  String get dubossary {
+    return Intl.message(
+      'Dubossary',
+      name: 'dubossary',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Grigoriopol`
+  String get grigoriopol {
+    return Intl.message(
+      'Grigoriopol',
+      name: 'grigoriopol',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Kamenka`
+  String get kamenka {
+    return Intl.message(
+      'Kamenka',
+      name: 'kamenka',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Slobodzeya`
+  String get slobodzeya {
+    return Intl.message(
+      'Slobodzeya',
+      name: 'slobodzeya',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dnestrovsk`
+  String get dnestrovsk {
+    return Intl.message(
+      'Dnestrovsk',
+      name: 'dnestrovsk',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Filters`
+  String get filter {
+    return Intl.message(
+      'Filters',
+      name: 'filter',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Apply`
+  String get apply {
+    return Intl.message(
+      'Apply',
+      name: 'apply',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `City`
+  String get city {
+    return Intl.message(
+      'City',
+      name: 'city',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add city`
+  String get addCity {
+    return Intl.message(
+      'Add city',
+      name: 'addCity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Go Out`
+  String get goOut {
+    return Intl.message(
+      'Go Out',
+      name: 'goOut',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `About the application`
+  String get aboutApplication {
+    return Intl.message(
+      'About the application',
+      name: 'aboutApplication',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You don't have any advertisement yet`
+  String get youDontHaveAnyAdvertisementYet {
+    return Intl.message(
+      'You don\'t have any advertisement yet',
+      name: 'youDontHaveAnyAdvertisementYet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Don't miss the opportunity!\n Create and publish your ad right now to offer products or services to a wide audience.`
+  String get dontMisstheOpportunity {
+    return Intl.message(
+      'Don\'t miss the opportunity!\n Create and publish your ad right now to offer products or services to a wide audience.',
+      name: 'dontMisstheOpportunity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add advertisements to favorites`
+  String get addAdvertisementsToFavorites {
+    return Intl.message(
+      'Add advertisements to favorites',
+      name: 'addAdvertisementsToFavorites',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You can come back to them later`
+  String get youCanComeBackToThemLater {
+    return Intl.message(
+      'You can come back to them later',
+      name: 'youCanComeBackToThemLater',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Favorites `
+  String get favorite {
+    return Intl.message(
+      'Favorites ',
+      name: 'favorite',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name`
+  String get name {
+    return Intl.message(
+      'Name',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Description`
+  String get description {
+    return Intl.message(
+      'Description',
+      name: 'description',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
